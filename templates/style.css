@@ -1,0 +1,19 @@
+.jumbotron {
+    background: #74cc75 !important;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background-color: #212529 !important;
+}
+a.nav-link {
+    color: #ffffff !important;
+}
+p.card-text {
+    text-align: center;
+}
+.card {
+    width: auto !important;
+    background-color: #73cc75;
+}
+h5.card-title {
+    text-align: center;
+}
