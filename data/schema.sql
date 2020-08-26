@@ -49,3 +49,9 @@ average_weekly_rate INT,
 avg_rate_per_mile_ratio FLOAT,
 availability_score INT
 );
+
+CREATE TABLE banana_prices (
+dates DATE,
+price_per_pound FLOAT,
+percent_change FLOAT
+);
