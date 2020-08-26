@@ -1,6 +1,6 @@
 # import dependencies
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import sqlalchemy
 import psycopg2
 import pandas as pd
 import json
@@ -66,6 +66,17 @@ def get_data():
     
     avo_data['avo_transport'] = avo_tr_json
     # --- AVO TRANSPORT PRICES DATA ---
+
+    #  WEATHER DATA ---
+    # import SQL table as pandas dataframe
+    weather_df = pd.read_sql('select * from weather', connection)
+    
+    # convert pandas dataframe to json
+    weather_json = json.dumps(weather_df.to_dict('records'), default=str)
+    
+    avo_data['weather'] = weather_json
+    # --- WEATHER PRICES DATA ---
+
     return avo_data
 
 if __name__ == "__main__":
