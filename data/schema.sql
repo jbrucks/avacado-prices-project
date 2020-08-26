@@ -3,10 +3,11 @@
 -- DROP TABLE tot_transport;
 -- DROP TABLE avo_transport;
 -- DROP TABLE banana_prices;
--- DROP TABLE weather;
+-- DROP TABLE san_diego;
+
 
 CREATE TABLE avocado (
-date DATE PRIMARY KEY,
+date DATE,
 average_price FLOAT,
 total_volume FLOAT,
 small_avocados_sold FLOAT,
@@ -18,7 +19,7 @@ region VARCHAR
 );
 
 CREATE TABLE gas (
-date DATE PRIMARY KEY,
+date DATE,
 gas_all_grades FLOAT,
 regular FLOAT,
 midgrade FLOAT,
@@ -58,8 +59,8 @@ price_per_pound FLOAT,
 percent_change FLOAT
 );
 
-CREATE TABLE SanDiego (
-    "dt" VARCHAR,
+CREATE TABLE san_diego (
+    "date" VARCHAR,
     "temp" FLOAT,
     "rain_1h" FLOAT,
     "rain_3h" FLOAT,
