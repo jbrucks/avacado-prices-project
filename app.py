@@ -79,7 +79,7 @@ def get_data():
 
     #  BANANA PRICES DATA ---
     # import SQL table as pandas dataframe
-    bananas_df = pd.read_sql('select * banana_prices', connection)
+    bananas_df = pd.read_sql('select * from banana_prices', connection)
     
     # convert pandas dataframe to json
     bananas_json = json.dumps(bananas_df.to_dict('records'), default=str)
