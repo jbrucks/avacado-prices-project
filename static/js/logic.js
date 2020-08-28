@@ -121,40 +121,40 @@ d3.select(".avocado__inner").on("click", weather);
 
   function weather() {
     // console.log("it worked");
-
-    // replotting weather visualizations
+    d3.json("/api/v1.0/data").then((data)=>{
+      // replotting weather visualizations
     
-    var weatherTrace = {
-      x: [],
-      y: [],
-      mode: 'markers',
-      marker: {
-        size: []
-      }
-    };
+      var weatherTrace = {
+        x: [],
+        y: [],
+        mode: 'markers',
+        marker: {
+          size: []
+        }
+      };
+      
+      var weatherData = [weatherTrace];
     
-    var weatherData = [weatherTrace];
+      var weatherLayout = {
+        title: 'Weather Data Analysis',
+        showlegend: false,
+      };
     
-    var weatherLayout = {
-      title: 'Weather Data Analysis',
-      showlegend: false,
-    };
+      var chart = d3.selectAll("#chart").node();
     
-    var chart = d3.selectAll("#chart").node();
+      Plotly.react(chart, weatherData, weatherLayout);
     
-    Plotly.react(chart, weatherData, weatherLayout);
+      // grab nodes for updating info card
+      var dashboard_titleW = d3.select("#dashboard_title");
+      var dashboard_subTitleW = d3.select("#dashboard_subtitle");
+      var dashboard_textW = d3.select("#dashboard_text");
     
-    // grab nodes for updating info card
-    var dashboard_titleW = d3.select("#dashboard_title");
-    var dashboard_subTitleW = d3.select("#dashboard_subtitle");
-    var dashboard_textW = d3.select("#dashboard_text");
-    
-    // Update info card with new text
-    dashboard_titleW.text("Open Weather API");
-    dashboard_subTitleW.text("San Diego Historical Weather");
-    dashboard_textW.text("Info on this data, limitations, etc.");
-
-};
+      // Update info card with new text
+      dashboard_titleW.text("Open Weather API");
+      dashboard_subTitleW.text("San Diego Historical Weather");
+      dashboard_textW.text("Info on this data, limitations, etc.");
+    }); 
+  };
 // -- WEATHER DATA FUNCTIONS AND INFO --
 
 // -- GAS DATA FUNCTIONS AND INFO --
@@ -162,40 +162,40 @@ d3.select(".avocado__inner-shadow").on("click", gas);
 
   function gas() {
     // console.log("it worked");
-
+    d3.json("/api/v1.0/data").then((data)=>{
     // replotting gas visualizations
     
-    var weatherTrace = {
-      x: [],
-      y: [],
-      mode: 'markers',
-      marker: {
-        size: []
-      }
-    };
+      var weatherTrace = {
+        x: [],
+        y: [],
+        mode: 'markers',
+        marker: {
+          size: []
+        }
+      };
     
-    var gasData = [gasTrace];
+      var gasData = [gasTrace];
     
-    var gasLayout = {
-      title: 'Gas Data Analysis',
-      showlegend: false,
-    };
+      var gasLayout = {
+        title: 'Gas Data Analysis',
+        showlegend: false,
+      };
     
-    var chart = d3.selectAll("#chart").node();
+      var chart = d3.selectAll("#chart").node();
     
-    Plotly.react(chart, gasData, gasLayout);
+      Plotly.react(chart, gasData, gasLayout);
     
-    // grab nodes for updating info card
-    var dashboard_titleG = d3.select("#dashboard_title");
-    var dashboard_subTitleG = d3.select("#dashboard_subtitle");
-    var dashboard_textG = d3.select("#dashboard_text");
+      // grab nodes for updating info card
+      var dashboard_titleG = d3.select("#dashboard_title");
+      var dashboard_subTitleG = d3.select("#dashboard_subtitle");
+      var dashboard_textG = d3.select("#dashboard_text");
     
-    // Update info card with new text
-    dashboard_titleG.text("US Energy Information Administration Data");
-    dashboard_subTitleG.text("Gas Prices Data");
-    dashboard_textG.text("Info on this data, limitations, etc.");
-
-};
+      // Update info card with new text
+      dashboard_titleG.text("US Energy Information Administration Data");
+      dashboard_subTitleG.text("Gas Prices Data");
+      dashboard_textG.text("Info on this data, limitations, etc.");
+    });
+  };
 // -- GAS DATA FUNCTIONS AND INFO --
 
 // -- BANANA DATA FUNCTIONS AND INFO --
@@ -203,39 +203,39 @@ d3.select(".avocado__seed").on("click", banana);
 
   function banana() {
     // console.log("it worked");
-
+    d3.json("/api/v1.0/data").then((data)=>{
     // replotting banana visualizations
     
-    var bananaTrace = {
-      x: [],
-      y: [],
-      mode: 'markers',
-      marker: {
-        size: []
-      }
-    };
+      var bananaTrace = {
+        x: [],
+        y: [],
+        mode: 'markers',
+        marker: {
+          size: []
+        }
+      };
     
-    var bananaData = [bananaTrace];
+      var bananaData = [bananaTrace];
     
-    var bananaLayout = {
-      title: 'Banana Data Analysis',
-      showlegend: false,
-    };
+      var bananaLayout = {
+        title: 'Banana Data Analysis',
+        showlegend: false,
+      };
     
-    var chart = d3.selectAll("#chart").node();
+      var chart = d3.selectAll("#chart").node();
     
-    Plotly.react(chart, bananaData, bananaLayout);
+      Plotly.react(chart, bananaData, bananaLayout);
     
-    // grab nodes for updating info card
-    var dashboard_titleW = d3.select("#dashboard_title");
-    var dashboard_subTitleW = d3.select("#dashboard_subtitle");
-    var dashboard_textW = d3.select("#dashboard_text");
+      // grab nodes for updating info card
+      var dashboard_titleW = d3.select("#dashboard_title");
+      var dashboard_subTitleW = d3.select("#dashboard_subtitle");
+      var dashboard_textW = d3.select("#dashboard_text");
     
-    // Update info card with new text
-    dashboard_titleB.text("USDA Economic Research Service Data");
-    dashboard_subTitleB.text("Banana Prices Data");
-    dashboard_textB.text("Info on this data, limitations, etc.");
-
+      // Update info card with new text
+      dashboard_titleB.text("USDA Economic Research Service Data");
+      dashboard_subTitleB.text("Banana Prices Data");
+      dashboard_textB.text("Info on this data, limitations, etc.");
+    });
 };
 // -- BANANA DATA FUNCTIONS AND INFO --
 
