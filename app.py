@@ -70,11 +70,14 @@ def get_data():
     #  WEATHER DATA ---
     # import SQL table as pandas dataframe
     weather_df = pd.read_sql('select * from san_diego', connection)
-    
+    weather_df2 = pd.read_sql('select * from san_diego2', connection)
+
     # convert pandas dataframe to json
     weather_json = json.dumps(weather_df.to_dict('records'), default=str)
-    
+    weather_json2 = json.dumps(weather_df2.to_dict('records'), default=str)
+
     avo_data['weather'] = weather_json
+    avo_data['weather2'] = weather_json2
     # --- WEATHER DATA ---
 
     #  BANANA PRICES DATA ---

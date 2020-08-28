@@ -7,6 +7,7 @@ d3.json("/api/v1.0/data").then((data)=>{
   var tot_transport = data.tot_transport
   var avo_transport = data.avo_transport
   var weather = data.weather
+  var weather2 = data.weather2
   var bananas = data.bananas
   // console.log(avo_prices)
   // console.log(gas_prices)
@@ -45,6 +46,9 @@ d3.json("/api/v1.0/data").then((data)=>{
 
   function transport() {
     // console.log("it worked");
+
+    // replotting transport visualizations
+    
 
     // grab nodes for updating info card
     var dashboard_title = d3.select("#dashboard_title");
