@@ -44,13 +44,13 @@ d3.json("/api/v1.0/data").then((data)=>{
   d3.selectAll(".avocado__skin").on("click", transport);
 
   function transport() {
-    console.log("it worked");
+    // console.log("it worked");
 
     // grab nodes for updating info card
-    var dashboard_title = d3.selectAll(".dashboard_title").node();
-    var dashboard_subTitle = d3.selectAll(".dashboard_subtitle").node();
-    var dashboard_text = d3.selectAll(".dashboard_text").node();
-
+    var dashboard_title = d3.select("#dashboard_title");
+    var dashboard_subTitle = d3.select("#dashboard_subtitle");
+    var dashboard_text = d3.select("#dashboard_text");
+    
     // Update info card with new text
     dashboard_title.text("USDA Transport Data");
     dashboard_subTitle.text("Trucking Availability and Rates");
