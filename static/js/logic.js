@@ -54,7 +54,7 @@ d3.json("/api/v1.0/data").then((data)=>{
     // Update info card with new text
     dashboard_title.text("USDA Transport Data");
     dashboard_subTitle.text("Trucking Availability and Rates");
-    dashboard_text.text("This data comes from the USDA site (https://agtransport.usda.gov/). Specifically the trucking category. This data shows the availability and rates for refrigerated trucks transporting ag commodities and we utilized this and were able to drill down to see costs associated specifically with avocados.");
+    dashboard_text.text("This data comes from the USDA Ag Transport site ( https://agtransport.usda.gov/ ), specifically the trucking category. This data shows the availability and rates for refrigerated trucks transporting ag commodities and we utilized this and were able to drill down to see costs associated specifically with avocados.");
 
   };
   // -- TRANSPORT DATA FUNCTIONS AND INFO --

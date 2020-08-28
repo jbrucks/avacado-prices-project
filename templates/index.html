@@ -18,20 +18,21 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="javascript:history.go(0)">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
-          </li>
+          </li> -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              Data Sets
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="https://www.kaggle.com/neuromusic/avocado-prices?select=avocado.csv" target="_blank">Avocado Price Data</a>
+              <a class="dropdown-item" href="https://www.eia.gov/dnav/pet/pet_pri_gnd_dcus_nus_w.htm" target="_blank">Gas Price Data</a>
+              <a class="dropdown-item" href="https://openweathermap.org/history" target="_blank">Weather Data</a>
+              <a class="dropdown-item" href="https://agtransport.usda.gov/Truck/Recent-Weekly-US-Average-Refrigerated-Truck-Rates/ux59-h6jx" target="_blank">Transport Data</a>
+              <a class="dropdown-item" href="https://data.ers.usda.gov/reports.aspx?ID=17850" target="_blank">Banana Price Data</a>
             </div>
           </li>
         </ul>
@@ -44,7 +45,13 @@
         <h1 class="display-4">Avocado's Guac Our World!</h1>
         <p class="lead">Abdulla Alrashdi, Jeff Bauman, Jake Brucks, Alex Cole, and Robert Hartley</p>
         <hr>
-        <h4 class="container">Subtitle and Info</h4>
+        <h4 class="display-5">An in depth look at avocado prices and variables that potentially drive that price.</h4>
+        <h5>Click on the avocado to see different analysis.</h5>
+        <ul style="list-style: none;">
+          <li>Click the skin to transport data visualizations</li>
+          <li>Click the skin to transport data visualizations</li>
+          <li>Click the skin to transport data visualizations</li>
+      </ul>
       </div>
     </div>
   
@@ -69,11 +76,11 @@
           <div class="col-md-1">
           </div>
           <div class="col-md-4">
-            <h3 id="dashboard_title" class="text-center">Avocado Dashboard</h3>
+            <h3 id="dashboard_title" class="text-center">Data Dashboard</h3>
             <div class="card" style="width: 18rem;">
               <div class="card-body">
-                <h5 id="dashboard_subtitle" class="card-title">Insert Avocado Dashboard Here</h5>
-                <p id="dashboard_text" class="card-text">Insert Avocado Dashboard here</p>
+                <h5 id="dashboard_subtitle" class="card-title">Data Source Info</h5>
+                <p id="dashboard_text" class="card-text">Information about the data used in the visualizations below.</p>
               </div>
             </div>
           </div>

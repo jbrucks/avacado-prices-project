@@ -4,6 +4,7 @@
 -- DROP TABLE avo_transport;
 -- DROP TABLE banana_prices;
 -- DROP TABLE san_diego;
+-- DROP TABLE san_diego2;
 
 
 CREATE TABLE avocado (
@@ -67,4 +68,13 @@ CREATE TABLE san_diego (
     "snow_1h" FLOAT,
     "snow_3h" FLOAT,
     "weather_description" VARCHAR
+);
+
+CREATE TABLE san_diego2 (
+    "date" VARCHAR,
+    "temp" FLOAT,
+    "rain_1h" FLOAT,
+    "rain_3h" FLOAT,
+    "snow_1h" FLOAT,
+    "snow_3h" FLOAT 
 );
