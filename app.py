@@ -92,5 +92,17 @@ def get_data():
 
     return avo_data
 
+# @app.route("/api/v1.0/avo_prices")
+# def get_data():
+    
+#     # AVOCADO PRICES DATA ---
+#     # import SQL table as pandas dataframe
+#     avocado_df = pd.read_sql('select * from avocado', connection)
+    
+#     # convert pandas dataframe to json
+#     avocado_json = json.dumps(avocado_df.to_dict('records'), default=str)
+
+#     return avocado_json
+
 if __name__ == "__main__":
     app.run(debug = True)
