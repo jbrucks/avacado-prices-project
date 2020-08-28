@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="static/css/style.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,9 +21,9 @@
           <li class="nav-item active">
             <a class="nav-link" href="javascript:history.go(0)">Home <span class="sr-only">(current)</span></a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li> -->
+          <li class="nav-item">
+            <a id="hide" class="nav-link" href="#">Hide</a>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Data Sets
@@ -41,16 +42,18 @@
     </nav>
     
     <div class="container">
-      <div class="jumbotron">
-        <h1 class="display-4">Avocado's Guac Our World!</h1>
+      <div id="titleblock" class="jumbotron">
+        <h1 class="display-4"><strong>Avocado's Guac Our World!</strong></h1>
         <p class="lead">Abdulla Alrashdi, Jeff Bauman, Jake Brucks, Alex Cole, and Robert Hartley</p>
         <hr>
         <h4 class="display-5">An in depth look at avocado prices and variables that potentially drive that price.</h4>
         <h5>Click on the avocado to see different analysis.</h5>
         <ul style="list-style: none;">
-          <li>Click the skin to transport data visualizations</li>
-          <li>Click the skin to transport data visualizations</li>
-          <li>Click the skin to transport data visualizations</li>
+          <li>Click the skin to see transport data visualizations</li>
+          <li>Click the fruit shadow to see _____ visualizations</li>
+          <li>Click the fruit to see _____ visualizations</li>
+          <li>Click the seed to see _____ visualizations</li>
+          <li>Select "Hide" in nav bar to hide Title Block</li>
       </ul>
       </div>
     </div>

@@ -16,6 +16,30 @@ d3.json("/api/v1.0/data").then((data)=>{
   // console.log(weather)
   // console.log(bananas)
 
+  // -- FUNCTION TO HIDE TITLE BLOCK --
+  $(document).ready(function(){
+
+    $('#hide').click(function(){
+    $('#titleblock').toggle('slow');
+    
+    });
+    
+    });
+
+  // var hide = document.querySelector('#hide');
+
+  // hide.addEventListener('click', function(){
+  //   var jumbo = document.getElementById('#titleblock');
+  //   if(jumbo.style.display == 'none'){
+  //   jumbo.style.display = 'block';
+  //   }
+  //   else{
+  //   jumbo.style.display = 'none';
+  //   }
+
+  // });
+  // -- FUNCTION TO HIDE TITLE BLOCK --
+
   // initialize charts for rewriting with input data
   function init() {
     
@@ -48,7 +72,7 @@ d3.json("/api/v1.0/data").then((data)=>{
     // console.log("it worked");
 
     // replotting transport visualizations
-    
+
 
     // grab nodes for updating info card
     var dashboard_title = d3.select("#dashboard_title");

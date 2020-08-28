@@ -1,14 +1,13 @@
 .jumbotron {
-    margin-top: 20px;
     background: #edbd86 !important;
     text-align: center;
-    text-decoration-color: #4e6526;
 }
 nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    margin-bottom: 20px;
     background-color: #4e6526 !important;
 }
 a.nav-link {
-    color: #ffffff !important;
+    color: #edbd86 !important;
 }
 p.card-text {
     text-align: center;
