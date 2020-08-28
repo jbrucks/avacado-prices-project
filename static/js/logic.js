@@ -165,7 +165,7 @@ d3.select(".avocado__inner-shadow").on("click", gas);
     d3.json("/api/v1.0/data").then((data)=>{
     // replotting gas visualizations
     
-      var weatherTrace = {
+      var gasTrace = {
         x: [],
         y: [],
         mode: 'markers',
@@ -227,9 +227,9 @@ d3.select(".avocado__seed").on("click", banana);
       Plotly.react(chart, bananaData, bananaLayout);
     
       // grab nodes for updating info card
-      var dashboard_titleW = d3.select("#dashboard_title");
-      var dashboard_subTitleW = d3.select("#dashboard_subtitle");
-      var dashboard_textW = d3.select("#dashboard_text");
+      var dashboard_titleB = d3.select("#dashboard_title");
+      var dashboard_subTitleB = d3.select("#dashboard_subtitle");
+      var dashboard_textB = d3.select("#dashboard_text");
     
       // Update info card with new text
       dashboard_titleB.text("USDA Economic Research Service Data");
