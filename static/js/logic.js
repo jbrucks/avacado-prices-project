@@ -14,6 +14,7 @@ d3.json("/api/v1.0/data").then((data)=>{
   // console.log(avo_transport)
   // console.log(weather)
   // console.log(bananas)
+
   // initialize charts for rewriting with input data
   function init() {
     
@@ -30,11 +31,11 @@ d3.json("/api/v1.0/data").then((data)=>{
     var data = [trace];
     
     var layout = {
-      title: 'Chart',
+      title: 'Charts',
       showlegend: false,
     };
     
-    var chart = d3.selectAll("#chart");
+    var chart = d3.selectAll("#chart").node();
     
     Plotly.newPlot(chart, data, layout);
   }
@@ -44,12 +45,17 @@ d3.json("/api/v1.0/data").then((data)=>{
 
   function transport() {
     console.log("it worked");
+
+    // grab nodes for updating info card
     var dashboard_title = d3.selectAll(".dashboard_title").node();
     var dashboard_subTitle = d3.selectAll(".dashboard_subtitle").node();
     var dashboard_text = d3.selectAll(".dashboard_text").node();
-    Object.entries(dashboard_title).attr("value", "USDA Transport Data");
-    Object.entries(dashboard_subTitle).attr("value", "Trucking Availability and Rates");
-    Object.entries(dashboard_text).attr("value", "This data comes from the USDA site (https://agtransport.usda.gov/). Specifically the trucking category. This data shows the availability and rates for refrigerated trucks transporting ag commodities and we utilized this and were able to drill down to see costs associated specifically with avocados.");
+
+    // Update info card with new text
+    dashboard_title.text("USDA Transport Data");
+    dashboard_subTitle.text("Trucking Availability and Rates");
+    dashboard_text.text("This data comes from the USDA site (https://agtransport.usda.gov/). Specifically the trucking category. This data shows the availability and rates for refrigerated trucks transporting ag commodities and we utilized this and were able to drill down to see costs associated specifically with avocados.");
+
   };
   // -- TRANSPORT DATA FUNCTIONS AND INFO --
 
