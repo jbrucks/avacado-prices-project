@@ -63,10 +63,12 @@ d3.select(".avocado__skin").on("click", transport);
       var avo_prices = data.avocado_prices
       var tot_transport = data.tot_transport
       var avo_transport = data.avo_transport
+      transport_dates = tot_transport.map(obj => obj.date);
 
+      console.log(transport_dates)
       // replotting transport visualizations
       var avoTransportTrace1 = {
-       x: tot_transport[0].date,
+        x: tot_transport[0].date,
         y: tot_transport[0].average_weekly_rate,
         mode: 'markers',
         marker: {
@@ -140,7 +142,7 @@ d3.select(".avocado__inner").on("click", weather);
         showlegend: false,
       };
     
-      var chart = d3.selectAll("#chart").node();
+      var chart = d3.select("#chart").node();
     
       Plotly.react(chart, weatherData, weatherLayout);
     
@@ -181,7 +183,7 @@ d3.select(".avocado__inner-shadow").on("click", gas);
         showlegend: false,
       };
     
-      var chart = d3.selectAll("#chart").node();
+      var chart = d3.select("#chart").node();
     
       Plotly.react(chart, gasData, gasLayout);
     
@@ -205,26 +207,55 @@ d3.select(".avocado__seed").on("click", banana);
     // console.log("it worked");
     d3.json("/api/v1.0/data").then((data)=>{
     // replotting banana visualizations
-    
+      var avocado_prices = data.avocado_prices
+      var banana_prices = data.bananas
+      var gas_prices = data.gas_prices
+      
       var bananaTrace = {
-        x: [],
-        y: [],
-        mode: 'markers',
-        marker: {
-          size: []
+        x: banana_prices[0].date,
+        y: banana_prices[0].price_per_pound,
+        mode: 'lines',
+        type: 'scatter',
+        name: "Bananas",
+        line: {
+          color: 'yellow'
         }
       };
-    
-      var bananaData = [bananaTrace];
-    
-      var bananaLayout = {
-        title: 'Banana Data Analysis',
-        showlegend: false,
+      var gasTrace = {
+        x: gas_prices[0].date,
+        y: gas_prices[0].gas_all_grades,
+        mode: 'lines',
+        type: 'scatter',
+        name: 'Gas',
+        line: {
+          color: 'black'
+        }
       };
-    
-      var chart = d3.selectAll("#chart").node();
-    
-      Plotly.react(chart, bananaData, bananaLayout);
+      var avocadoTrace = {
+        x: avocado_prices[0].date,
+        y: avocado_prices[0].average_price,
+        mode: 'lines',
+        type: 'scatter',
+        name: 'Avocado',
+        line: {
+          color: 'green'
+        }
+      };
+      var compareData = [avocadoTrace, bananaTrace, gasTrace];
+      var compareLayout = {
+        title: 'Overall Price Analysis',
+        showlegend: false,
+        xaxis: {
+          range: ['01/01/2015', '03/31/2018'],
+          type: 'date'
+        },
+        yaxis: {
+          range: [0, 5],
+          type: 'linear'
+        }
+      };
+      var chart = d3.select("#chart").node();
+      Plotly.react(chart, compareData, compareLayout);
     
       // grab nodes for updating info card
       var dashboard_titleB = d3.select("#dashboard_title");
