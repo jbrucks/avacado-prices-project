@@ -21,15 +21,9 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     avo_data = get_data()
-    avocado_json = get_avo()
-    tot_tr_json = get_tot_tr()
-    avo_tr_json = avo_tr_json
-    bananas_json = get_bananas()
-    weather_json = get_weather()
-    weather_json2 = get_weather2()
-    gas_json = get_gas()
+    transport = get_transport()
 
-    return render_template("index.html", avo_data=avo_data, avocado_json=avocado_json, bananas_json=bananas_json, tot_tr_json=tot_tr_json, avo_tr_json=avo_tr_json, gas_json=gas_json, weather_json=weather_json, weather_json2=weather_json2)
+    return render_template("index.html", avo_data=avo_data, transport=transport)
 
 @app.route("/api/v1.0/data")
 def get_data():
@@ -100,89 +94,25 @@ def get_data():
 
     return avo_data
 
-@app.route("/api/v1.0/avo_prices")
-def get_avo():
-    
-    # AVOCADO PRICES DATA ---
-    # import SQL table as pandas dataframe
-    avocado_df = pd.read_sql('select * from avocado', connection)
-    
-    # convert pandas dataframe to json
-    avocado_json = json.dumps(avocado_df.to_dict('records'), default=str)
+@app.route("/api/v1.0/transport")
+def get_transport():
 
-    return avocado_json
-
-@app.route("/api/v1.0/tot_tr")
-def get_tot_tr():
-
-    # TOT TRANSPORT PRICES DATA ---
+    transport = {}
+    # TRANSPORT & PRICES DATA ---
     # import SQL table as pandas dataframe
     tot_tr_df = pd.read_sql('select * from tot_transport', connection)
-    
+    avo_tr_df = pd.read_sql('select * from avo_transport', connection)
+    avocado_df = pd.read_sql('select * from avocado', connection)
     # convert pandas dataframe to json
     tot_tr_json = json.dumps(tot_tr_df.to_dict('records'), default=str)
-    
-    return tot_tr_json
-    
-@app.route("/api/v1.0/avo_tr")
-def get_avo_tr():
-
-    #  AVO TRANSPORT PRICES DATA ---
-    # import SQL table as pandas dataframe
-    avo_tr_df = pd.read_sql('select * from avo_transport', connection)
-    
-    # convert pandas dataframe to json
     avo_tr_json = json.dumps(avo_tr_df.to_dict('records'), default=str)
+    avocado_json = json.dumps(avocado_df.to_dict('records'), default=str)
     
-    return avo_tr_json
-
-@app.route("/api/v1.0/weather")
-def get_weather():
+    transport["tot"] = tot_tr_json
+    transport["avo"] = avo_tr_json
+    transport["price"] = avocado_json
     
-    #  WEATHER DATA ---
-    # import SQL table as pandas dataframe
-    weather_df = pd.read_sql('select * from san_diego', connection)
-
-    # convert pandas dataframe to json
-    weather_json = json.dumps(weather_df.to_dict('records'), default=str)
-
-    return weather_json
-    
-@app.route("/api/v1.0/weather2")
-def get_weather2():   
-    
-    #  WEATHER DATA ---
-    # import SQL table as pandas dataframe
-    weather_df2 = pd.read_sql('select * from san_diego2', connection)
-
-    # convert pandas dataframe to json
-    weather_json2 = json.dumps(weather_df2.to_dict('records'), default=str)
-
-    return weather_json2
-
-@app.route("/api/v1.0/bananas")
-def get_bananas():
-
-    #  BANANA PRICES DATA ---
-    # import SQL table as pandas dataframe
-    bananas_df = pd.read_sql('select * from banana_prices', connection)
-    
-    # convert pandas dataframe to json
-    bananas_json = json.dumps(bananas_df.to_dict('records'), default=str)
-    
-    return bananas_json
-
-@app.route("/api/v1.0/gas")
-def get_gas():
-
-    # GAS PRICES DATA ---
-    # import SQL table as pandas dataframe
-    gas_df = pd.read_sql('select * from gas', connection)
-    
-    # convert pandas dataframe to json
-    gas_json = json.dumps(gas_df.to_dict('records'), default=str)
-    
-    return gas_json
+    return transport
 
 if __name__ == "__main__":
     app.run(debug = True)

@@ -58,18 +58,19 @@ d3.select(".avocado__skin").on("click", transport);
 
   function transport() {
     // console.log("it worked");
-    d3.json("/api/v1.0/data").then((data)=>{
+    d3.json("/api/v1.0/transport").then((data)=>{
       // console.log(data)
-      var avo_prices = data.avocado_prices
-      var tot_transport = data.tot_transport
-      var avo_transport = data.avo_transport
-      transport_dates = tot_transport.map(obj => obj.date);
+      var tot_transport = data.tot
+      var avo_transport = data.avo
+      var avo_prices = data.price
 
+      transport_dates = tot_transport.map(obj => obj.date);
       console.log(transport_dates)
+      
       // replotting transport visualizations
       var avoTransportTrace1 = {
-        x: tot_transport[0].date,
-        y: tot_transport[0].average_weekly_rate,
+        x: [],
+        y: [],
         mode: 'markers',
         marker: {
           size: []
@@ -77,8 +78,8 @@ d3.select(".avocado__skin").on("click", transport);
       };
 
       var avoTransportTrace2 = {
-        x: tot_transport[0].date,
-        y: avo_transport[0].average_weekly_rate,
+        x: [],
+        y: [],
         mode: 'markers',
         marker: {
           size: []
@@ -86,8 +87,8 @@ d3.select(".avocado__skin").on("click", transport);
       };
 
       var avoTransportTrace3 = {
-        x: tot_transport[0].date,
-        y: avo_prices[0].average_price,
+        x: [],
+        y: [],
         mode: 'markers',
         marker: {
           size: []
